@@ -11,7 +11,7 @@ function main() {
     const workBook = readFile(excelPath);
     const workSheet = workBook.Sheets[workBook.SheetNames[0]];
     const foods = getFoodsNow(workSheet);
-    console.log(foods.join("\n"));
+    fs.writeFileSync('foods.txt', foods.join("\n"), { encoding: 'utf-8' });
   }
 }
 
@@ -27,7 +27,7 @@ function getFoodsNow(workSheet: WorkSheet) {
   const now = new Date();
   const dayNum = now.getDay();
   const hour = now.getHours();
-  const time = hour < 10 ? "早餐" : hour < 15 ? "午餐" : "晚餐";
+  const time = hour < 10 ? "早餐" : hour < 16 ? "午餐" : "晚餐";
   const foods = getFoods(workSheet, dayNum, time);
   return foods;
 }
@@ -35,6 +35,7 @@ function getFoodsNow(workSheet: WorkSheet) {
 function getFoods(workSheet: WorkSheet, dayNum: number, time: string) {
   const day = ["周日", "周一", "周二", "周三", "周四", "周五", "周六"][dayNum];
   const foods: any[] = [];
+  foods.push(day + time);
   let rowNum = 0; // 食谱起始行号
   let colNum = ""; // 食谱起始列号
   for (const dayCol of dayCols) {

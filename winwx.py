@@ -409,7 +409,7 @@ def AddWx(wxid):
     pyautogui.click()
 
 # 发送文本消息（微信号或微信昵称或备注，需要发送的文本消息）
-# SendWxMsg('微信号','Python发送微信消息')
+# SendWxMsg('牧耀佑七','测试')
 
 # 发送文件消息（图片、文档、压缩包等）
 # SendWxFileMsg('微信号',r"文件路径")
@@ -440,3 +440,6 @@ def AddWx(wxid):
 
 # 添加微信
 # AddWx('微信号')
+
+foods = open('foods.txt','r',encoding='utf-8').read()
+SendWxMsg('牧耀佑七',foods)
