@@ -81,6 +81,7 @@ function getFoods(workSheet: WorkSheet, dayNum: number, time: string) {
               if (frult && frult.v) {
                 foods.push(frult.v);
               }
+              break;
             }
           }
           break;
