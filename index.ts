@@ -10,9 +10,14 @@ function main() {
   if (excelPath) {
     const workBook = readFile(excelPath);
     const workSheet = workBook.Sheets[workBook.SheetNames[0]];
-    const foods = getFoodsNow(workSheet);
-    fs.writeFileSync('foods.txt', foods.join("\n"), { encoding: 'utf-8' });
+    const foods = getFoodsNow(workSheet).join("\n");
+    if (foods) {
+      fs.writeFileSync("foods.txt", foods, { encoding: "utf-8" });
+      return;
+    }
   }
+  // 异常
+  process.exit(1);
 }
 
 function getExcelPath() {
