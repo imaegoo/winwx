@@ -4,9 +4,7 @@
 
 ```bat
 pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
-pip install pyautogui
-pip install pypiwin32
-pip install requests
+pip install pyautogui pypiwin32 requests
 python winwx.py
 ```
 

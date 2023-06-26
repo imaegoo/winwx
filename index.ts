@@ -6,6 +6,7 @@ const spFoodCol = "J"; // 本周特色小吃列
 const frultCol = "L"; // 本周水果列
 
 function main() {
+  fs.rmSync("foods.txt");
   const excelPath = getExcelPath();
   if (excelPath) {
     const workBook = readFile(excelPath);

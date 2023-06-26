@@ -442,6 +442,6 @@ def AddWx(wxid):
 # AddWx('微信号')
 
 foods = open('foods.txt','r',encoding='utf-8').read()
-#SendWxMsg('秋水共长天一色',foods)
-#SendWxMsg('行署小分队',foods)
-SendWxMsg('牧耀佑七',foods)
+SendWxMsg('秋水共长天一色',foods)
+SendWxMsg('行署小分队',foods)
+#SendWxMsg('牧耀佑七',foods)
