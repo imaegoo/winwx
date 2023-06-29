@@ -6,7 +6,6 @@ const spFoodCol = "J"; // 本周特色小吃列
 const frultCol = "L"; // 本周水果列
 
 function main() {
-  fs.rmSync("foods.txt");
   const excelPath = getExcelPath();
   if (excelPath) {
     const workBook = readFile(excelPath);
@@ -68,8 +67,13 @@ function getFoods(workSheet: WorkSheet, dayNum: number, time: string) {
         break;
     }
     let cel = workSheet[colNum + rowNum];
-    while (cel && cel.v) {
-      foods.push(cel.v);
+    let emptyTime = 0;
+    while (emptyTime < 2) {
+      if (cel && cel.v) {
+        foods.push(cel.v);
+      } else {
+        emptyTime++;
+      }
       rowNum++;
       cel = workSheet[colNum + rowNum];
     }
