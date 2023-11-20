@@ -107,21 +107,21 @@ function getFoods(workSheet: WorkSheet, dayNum: number, time: string) {
 
 async function sendByOneBot(text: string) {
   const target = [
-    // {
-    //   detail_type: "group",
-    //   group_id: "34382477424@chatroom",
-    //   // group_name: "行署小分队",
-    // },
-    // {
-    //   detail_type: "group",
-    //   group_id: "18496151483@chatroom",
-    //   // group_name: "秋水共长天一色",
-    // },
     {
-      detail_type: "private",
-      user_id: "wxid_xt6lwb6smtam22",
-      // user_name: "牧耀佑七",
+      detail_type: "group",
+      group_id: "34382477424@chatroom",
+      // group_name: "行署小分队",
     },
+    {
+      detail_type: "group",
+      group_id: "18496151483@chatroom",
+      // group_name: "秋水共长天一色",
+    },
+    // {
+    //   detail_type: "private",
+    //   user_id: "wxid_xt6lwb6smtam22",
+    //   // user_name: "牧耀佑七",
+    // },
   ];
   for (const t of target) {
     await axios({
